@@ -1,11 +1,14 @@
 import { SharedLayout } from "components/SharedLayout/SharedLayout";
-import Home from "pages/Home";
-import MovieDetails from "pages/MovieDetails";
-import Movies from "pages/Movies";
+import { NotFound } from "pages/NotFound";
 import { Route, Routes } from "react-router-dom";
 import { GlobalStyle } from "./GlobalStyle";
-import Cast from "components/Cast/Cast";
-import Reviews from "components/Reviews/Reviews";
+import { lazy } from "react";
+
+const Home = lazy(() => import("pages/Home"));
+const Movies = lazy(() => import("pages/Movies"));
+const MovieDetails = lazy(() => import("pages/MovieDetails"));
+const Cast = lazy(() => import("components/Cast/Cast"));
+const Reviews = lazy(() => import('components/Reviews/Reviews'))
 
 export const App = () => {
   return (
@@ -20,6 +23,7 @@ export const App = () => {
             <Route path="reviews" element={<Reviews/>} />
           </Route>
         </Route>
+        <Route path="*" element={<NotFound/>} />
       </Routes>
     </>
   );

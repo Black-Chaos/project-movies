@@ -6,7 +6,7 @@ import {
   MovieWrapp,
   Thumb,
 } from 'components/PageStyled/MovieDetails.styled';
-import { useEffect, useRef, useState } from 'react';
+import { Suspense, useEffect, useRef, useState } from 'react';
 import {
   Link,
   Outlet,
@@ -74,7 +74,9 @@ export default function MovieDetails() {
               </li>
             </ul>
           </AdditionalInfo>
-          <Outlet />
+          <Suspense fallback={<div>Loading...</div>}>
+            <Outlet />
+          </Suspense>
         </>
       )}
       {err && <h1>Oooops... Please reload page</h1>}

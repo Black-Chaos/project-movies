@@ -12,8 +12,6 @@ export class MovieAPI {
     },
   };
 
-  constructor() {}
-
   setSearchQuestion(q) {
     this.config.params.query = q;
     this.config.params.page = 1;

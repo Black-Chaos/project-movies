@@ -8,12 +8,12 @@ const movieAPI = new MovieAPI();
 
 export default function Movies() {
     const [sp, setSp] = useSearchParams();
-    const [inputValue, setInputValue] = useState('');
+    const search = sp.get('search')
+    const [inputValue, setInputValue] = useState(search ||'');
     const [movies, setMovies] = useState([]);
     const [error, setError] = useState(null);
-
-    const search = sp.get('search')
-
+    
+    
     const handleSubmit = e => {
         e.preventDefault()
         const name = e.target.movie.value;

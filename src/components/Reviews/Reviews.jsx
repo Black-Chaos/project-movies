@@ -25,7 +25,7 @@ export default function Reviews() {
 
   return (
     <>
-      {data.length > 0 && 
+      {data.length > 0 ? 
         <ReviewsList>
           {data.map(({ id, author, content }) => (
             <li key={id}>
@@ -33,7 +33,7 @@ export default function Reviews() {
                   <p>{ content}</p>
             </li>
           ))}
-        </ReviewsList>
+        </ReviewsList> : 'N/A'
       }
       {err && <h1>Oooops... Please reload page</h1>}
     </>

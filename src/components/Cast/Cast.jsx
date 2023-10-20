@@ -27,7 +27,7 @@ export default function Cast() {
     
     return (
       <>
-        {cast.length > 0 && (
+        {cast.length > 0 ? (
           <CastList>
             {cast.map(({ id, character, original_name, profile_path }) => (
               <CastItem key={id}>
@@ -39,7 +39,7 @@ export default function Cast() {
               </CastItem>
             ))}
           </CastList>
-        )}
+        ) : 'N/A'}
         {error && <h1>Oooops... Please reload page</h1>}
       </>
     );

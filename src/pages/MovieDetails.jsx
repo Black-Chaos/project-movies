@@ -54,9 +54,9 @@ export default function MovieDetails() {
               <h1>{title}</h1>
               <p>User score: {(vote_average * 10).toFixed()}%</p>
               <h2>Overview</h2>
-              <p>{overview}</p>
+              <p>{overview ? overview : 'N/A'}</p>
               <h2>Genres</h2>
-              <p>{genres.map(i => i.name)}</p>
+              <p>{genres.length > 0 ? genres.map(i => i.name) : 'N/A'}</p>
             </Description>
           </MovieWrapp>
           <AdditionalInfo>
